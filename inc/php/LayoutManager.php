@@ -6,7 +6,7 @@ class LayoutManager {
 	);
 	public $PageVars = Array();
 	private function ParseHTML($contents) {
-		foreach ($PageVars as $key => $value) {
+		foreach ($this->PageVars as $key => $value) {
 			$contents = str_replace('{$' . $key . '$}', $value, $contents);
 		}
 		return $contents;
@@ -16,9 +16,10 @@ class LayoutManager {
 		$PageVars[$key] = $value;
 	}
 
-	public function GeneratePage($Page) {
-		$this -> PageVars = $Config -> Values['PageVariables'];
-		$themeDir = "inc/theme/" . $Config -> Values['Theme'];
+	public function GeneratePage($Contents, $Config, $PageVariables) {
+		$this -> PageVars = $PageVariables;
+		$themeDir = "inc/theme/" . $Config["Theme"];
+		$this -> PageVars['PageContents'] = $Contents;
 		$layout = file_get_contents($themeDir . "/layout.html");
 		$layout = $this -> ParseHTML($layout);
 		echo $layout;
