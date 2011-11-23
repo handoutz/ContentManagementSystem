@@ -13,11 +13,10 @@ class LayoutManager {
 	}
 
 	public function RegisterPageVar($key, $value) {
-		$PageVars[$key] = $value;
+		$this->PageVars[$key] = $value;
 	}
 
 	public function GeneratePage($Contents, $Config, $PageVariables) {
-		$this -> PageVars = $PageVariables;
 		$themeDir = "inc/theme/" . $Config["Theme"];
 		$this -> PageVars['PageContents'] = $Contents;
 		$layout = file_get_contents($themeDir . "/layout.html");
@@ -27,10 +26,8 @@ class LayoutManager {
 
 }
 
-function SetLayout() {
-	global $Layout;
-	$Layout = new LayoutManager();
-}
-
-SetLayout();
+global $Config, $Layout;
+$Config = Array("Theme" => "Basic");
+$Layout = new LayoutManager();
+$Layout->RegisterPageVar("SiteName", "MySite")
 ?>

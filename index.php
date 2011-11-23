@@ -1,8 +1,10 @@
 <?php
-	require("inc/php/ConfigManager.php");
-	require("inc/php/LayoutManager.php");
-	
-	$page = $_GET['page'];
-	$Layout->GeneratePage($page, $Config, $PageVariables);
-	
+require ("inc/php/config.php");
+
+$page = $_GET['page'];
+$pageContents = "woot";
+?>
+
+<?php
+$Layout -> GeneratePage("woot", $Config, $PageVariables);
 ?>
