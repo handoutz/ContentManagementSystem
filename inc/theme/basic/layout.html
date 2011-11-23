@@ -2,9 +2,13 @@
 	<head>
 		<title>{$SiteName$} - {$PageTitle$}</title>
 		<link rel="stylesheet" type="text/css" href="inc/theme/basic/base.css" />
-		
 	</head>
 	<body>
-		{$PageContents$}
+		<div id="Wrapper">
+			<div id="Header">
+				{$HeaderContents$}
+			</div>
+			{$PageContents$}
+		</div>
 	</body>
 </html>

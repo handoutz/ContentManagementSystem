@@ -19,6 +19,7 @@ class LayoutManager {
 	public function GeneratePage($Contents, $Config, $PageVariables) {
 		$themeDir = "inc/theme/" . $Config["Theme"];
 		$this -> PageVars['PageContents'] = $Contents;
+		$this ->RegisterPageVar('HeaderContents',$this->ParseHTML(file_get_contents($themeDir.'/header.html')));
 		$layout = file_get_contents($themeDir . "/layout.html");
 		$layout = $this -> ParseHTML($layout);
 		echo $layout;

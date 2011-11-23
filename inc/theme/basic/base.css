@@ -1,4 +1,13 @@
 body {
 	color: #AAAAAA;
 	background-color: black;
+	font-family: sans-serif;
+}
+div#Wrapper{
+	position:relative;
+	left:15%;
+	width:70%;
+}
+div#Header{
+	background-color: gray;
 }
