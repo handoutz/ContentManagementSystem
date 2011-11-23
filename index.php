@@ -2,7 +2,7 @@
 require ("inc/php/config.php");
 
 $page = $_GET['page'];
-$pageContents = "woot";
+$pageContents = "woot";	
 ?>
 
 <?php

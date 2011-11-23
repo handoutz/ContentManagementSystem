@@ -13,13 +13,13 @@ class LayoutManager {
 	}
 
 	public function RegisterPageVar($key, $value) {
-		$this->PageVars[$key] = $value;
+		$this -> PageVars[$key] = $value;
 	}
 
 	public function GeneratePage($Contents, $Config, $PageVariables) {
 		$themeDir = "inc/theme/" . $Config["Theme"];
 		$this -> PageVars['PageContents'] = $Contents;
-		$this ->RegisterPageVar('HeaderContents',$this->ParseHTML(file_get_contents($themeDir.'/header.html')));
+		$this -> RegisterPageVar('HeaderContents', $this -> ParseHTML(file_get_contents($themeDir . '/header.html')));
 		$layout = file_get_contents($themeDir . "/layout.html");
 		$layout = $this -> ParseHTML($layout);
 		echo $layout;
@@ -30,5 +30,8 @@ class LayoutManager {
 global $Config, $Layout;
 $Config = Array("Theme" => "Basic");
 $Layout = new LayoutManager();
-$Layout->RegisterPageVar("SiteName", "MySite")
+$Layout -> RegisterPageVar("SiteName", "MySite");
+
+//module inclusions
+require("inc/php/modules/menubar.php");
 ?>
